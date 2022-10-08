@@ -8,7 +8,7 @@
 
     <router-link v-if="isUserMinterAdmin || isUserRoyaltyFeeUpdater || isUserTldAdmin" to="/admin">Admin</router-link>
     <span v-if="isUserMinterAdmin || isUserRoyaltyFeeUpdater || isUserTldAdmin"> | </span>
-    
+
     <a target="_blank" href="https://punk.domains">Powered by Punk Domains</a>
   </div>
 
@@ -18,7 +18,7 @@
 
     <a class="icons" target="_blank" href="https://github.com/punk-domains"><i class="bi bi-github"></i></a>
 
-    <a class="icons" target="_blank" href="http://discord.gg/"><i class="bi bi-discord"></i></a>
+    <a class="icons" target="_blank" href="https://discord.gg/8dSrwrAQeu"><i class="bi bi-discord"></i></a>
 
     <a class="icons" target="_blank" href="https://twitter.com/PunkDomains"><i class="bi bi-twitter"></i></a>
     

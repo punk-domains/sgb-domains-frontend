@@ -8,9 +8,7 @@
 
     <router-link v-if="isUserMinterAdmin || isUserRoyaltyFeeUpdater || isUserTldAdmin" to="/admin">Admin</router-link>
     <span v-if="isUserMinterAdmin || isUserRoyaltyFeeUpdater || isUserTldAdmin"> | </span>
-
-    <!--
-    <a target="_blank" href="https://4everland.org">Managed by 4everland</a> | -->
+    
     <a target="_blank" href="https://punk.domains">Powered by Punk Domains</a>
   </div>
 

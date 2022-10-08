@@ -25,7 +25,7 @@
                     class="dropdown-item" 
                     v-for="network in getSupportedNetworkNames"
                     @click="changeNetwork(network)"
-                  >{{network}}</span>
+                  >Switch to {{network}}</span>
                 </li>
               </ul>
             </div>

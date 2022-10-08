@@ -85,18 +85,15 @@ hr {
 }
 
 .Vue-Toastification__toast--info {
-  background-color: #3a1174;
-  border: 1px solid #DBDFEA;
+  background-color: #405374;
 }
 
 .Vue-Toastification__toast--success {
-  background-color: #4b7411;
-  border: 1px solid #DBDFEA;
+  background-color: #00C9D1;
 }
 
 .Vue-Toastification__toast--error {
-  background-color: #741911;
-  border: 1px solid #DBDFEA;
+  background-color: #e26670;
 }
 
 @media only screen and (max-width: 767px) {

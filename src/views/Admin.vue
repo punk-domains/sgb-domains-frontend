@@ -265,6 +265,52 @@
       </div>
       <!-- END TLD: transferOwnership -->
 
+      <!-- Minter: ownerFreeMint -->
+      <div v-if="isUserTldAdmin">
+        <h3>Minter contract: mint a domain for free</h3>
+
+        <p>The owner of the Minter contract can mint a domain for free.</p>
+
+        <div class="row mt-5">
+          <div class="col-md-6 offset-md-3">
+            <input 
+              v-model="newDomain"
+              class="form-control text-center border-2 border-light"
+              placeholder="Enter a domain name (without extension)"
+            >
+          </div>
+        </div>
+
+        <p class="error" v-if="buyNotValid(newDomain).invalid">
+          <small>
+            <em>{{ buyNotValid(newDomain).message }}</em>
+          </small>
+        </p>
+
+        <div class="row mt-2">
+          <div class="col-md-6 offset-md-3">
+            <input 
+              v-model="newDomainOwner"
+              class="form-control text-center border-2 border-light"
+              placeholder="Enter a new owner address"
+            >
+          </div>
+        </div>
+
+        <button 
+          v-if="isActivated" 
+          class="btn btn-primary btn-lg mt-3" 
+          @click="mintFreeDomain" 
+          :disabled="waitingMfd || buyNotValid(newDomain).invalid"
+        >
+          <span v-if="waitingMfd" class="spinner-border spinner-border-sm mx-1" role="status" aria-hidden="true"></span>
+          <span>Mint a free domain</span>
+        </button>
+
+        <hr />
+      </div>
+      <!-- END TLD: transferOwnership -->
+
     </div>
   </div>
 </div>
@@ -277,12 +323,15 @@ import { mapActions, mapGetters } from 'vuex';
 import { useToast, TYPE } from "vue-toastification";
 import WaitingToast from "../components/toasts/WaitingToast.vue";
 import MinterAbi from "../abi/Minter.json";
+import useDomainHelpers from "../hooks/useDomainHelpers";
 
 export default {
   name: "Admin",
 
   data() {
     return {
+      newDomain: null,
+      newDomainOwner: null,
       newMinterOwner: null,
       newTldOwner: null,
       newPrice1: null,
@@ -291,6 +340,7 @@ export default {
       newPrice4: null,
       newPrice5: null,
       newReferralFee: null,
+      waitingMfd: false,
       waitingPaused: false, // waiting for TX to complete
       waitingPrice1: false, // waiting for TX to complete
       waitingRf: false, // waiting for TX to complete
@@ -502,6 +552,74 @@ export default {
       this.waitingRf = false;
     },
 
+    async mintFreeDomain() {
+      this.waitingMfd = true;
+
+      const lowerCaseDomain = String(this.newDomain).toLowerCase();
+
+      // check if domain already minted
+      const tldIntfc = new ethers.utils.Interface(this.getTldAbi);
+      const tldContractSigner = new ethers.Contract(this.getTldAddress, tldIntfc, this.signer);
+
+      const existingHolder = await tldContractSigner.getDomainHolder(lowerCaseDomain);
+
+      if (existingHolder !== ethers.constants.AddressZero) {
+        this.toast("Sorry, but this domain name is already taken...", {type: TYPE.ERROR});
+        this.waitingMfd = false;
+        return;
+      }
+
+      // minter contract (with signer)
+      const minterIntfc = new ethers.utils.Interface(MinterAbi);
+      const minterContractSigner = new ethers.Contract(this.getMinterAddress, minterIntfc, this.signer);
+
+      try {
+        const tx = await minterContractSigner.ownerFreeMint(
+          lowerCaseDomain,
+          this.newDomainOwner
+        );
+
+        const toastWait = this.toast(
+          {
+            component: WaitingToast,
+            props: {
+              text: "Please wait for your transaction to confirm. Click on this notification to see transaction in the block explorer."
+            }
+          },
+          {
+            type: TYPE.INFO,
+            onClick: () => window.open(this.getBlockExplorerBaseUrl+"/tx/"+tx.hash, '_blank').focus()
+          }
+        );
+
+        const receipt = await tx.wait();
+
+        if (receipt.status === 1) {
+          this.toast.dismiss(toastWait);
+          this.toast("You have successfully minted a new domain!", {
+            type: TYPE.SUCCESS,
+            onClick: () => window.open(this.getBlockExplorerBaseUrl+"/tx/"+tx.hash, '_blank').focus()
+          });
+          this.waitingMfd = false;
+        } else {
+          this.toast.dismiss(toastWait);
+          this.toast("Transaction has failed.", {
+            type: TYPE.ERROR,
+            onClick: () => window.open(this.getBlockExplorerBaseUrl+"/tx/"+tx.hash, '_blank').focus()
+          });
+          console.log(receipt);
+          this.waitingMfd = false;
+        }
+
+      } catch (e) {
+        console.log(e)
+        this.waitingMfd = false;
+        this.toast(e.message, {type: TYPE.ERROR});
+      }
+
+      this.waitingMfd = false;
+    },
+
     async togglePaused() {
       this.waitingPaused = true;
 
@@ -661,8 +779,9 @@ export default {
   setup() {
     const { address, isActivated, signer } = useEthers();
     const toast = useToast();
+    const { buyNotValid } = useDomainHelpers();
 
-    return { address, isActivated, signer, toast }
+    return { address, buyNotValid, isActivated, signer, toast }
   }
 }
 </script>

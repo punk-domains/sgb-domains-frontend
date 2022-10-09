@@ -127,7 +127,6 @@ import Referral from '../components/Referral.vue';
 import useDomainHelpers from "../hooks/useDomainHelpers";
 import useChainHelpers from "../hooks/useChainHelpers";
 import MinterAbi from "../abi/Minter.json";
-import erc20Abi from '../abi/Erc20.json';
 
 export default {
   name: "Home",

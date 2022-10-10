@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid text-center mt-3">
+    <router-link to="/about">About</router-link><span> | </span>
+
     <router-link v-if="isActivated && isNetworkSupported" to="/profile">Profile</router-link>
     
     <span v-if="isActivated && isNetworkSupported"> | </span>
-
-    <!--<router-link to="/about">About</router-link><span> | </span>-->
 
     <router-link v-if="isUserMinterAdmin || isUserRoyaltyFeeUpdater || isUserTldAdmin" to="/admin">Admin</router-link>
     <span v-if="isUserMinterAdmin || isUserRoyaltyFeeUpdater || isUserTldAdmin"> | </span>
@@ -16,11 +16,11 @@
 
     <a class="icons" target="_blank" href="https://docs.punk.domains"><i class="bi bi-journal-text"></i></a>
 
-    <a class="icons" target="_blank" href="https://github.com/punk-domains"><i class="bi bi-github"></i></a>
+    <a class="icons" target="_blank" href="https://github.com/punk-domains/sgb-domains-frontend"><i class="bi bi-github"></i></a>
 
     <a class="icons" target="_blank" href="https://discord.gg/8dSrwrAQeu"><i class="bi bi-discord"></i></a>
 
-    <a class="icons" target="_blank" href="https://twitter.com/PunkDomains"><i class="bi bi-twitter"></i></a>
+    <a class="icons" target="_blank" href="https://twitter.com/SongbirdDomains"><i class="bi bi-twitter"></i></a>
     
   </div>
 </template>

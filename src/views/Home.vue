@@ -31,13 +31,13 @@
 
     <div class="text-align-header">
       <p class="mt-5 price-text">
-          Domain price: {{getPrice}} {{getPaymentTokenName}}
+          Domain price: {{Math.round(getPrice)}} {{getPaymentTokenName}}
       </p>
     </div>
 
     <!-- Minter contract paused -->
     <button v-if="isActivated && getMinterPaused" class="btn btn-primary btn-lg mt-3 buy-button" :disabled="true">
-      <span v-if="getMinterPaused">Buying paused</span>
+      <span v-if="getMinterPaused">Coming soon</span>
     </button>
 
     <!-- Not eligible -->
@@ -88,23 +88,23 @@
           <tbody>
             <tr>
               <td>1 character</td>
-              <td>{{getMinterTldPrice1}} {{getPaymentTokenName}}</td>
+              <td>{{Math.round(getMinterTldPrice1)}} {{getPaymentTokenName}}</td>
             </tr>
             <tr>
               <td>2 characters</td>
-              <td>{{getMinterTldPrice2}} {{getPaymentTokenName}}</td>
+              <td>{{Math.round(getMinterTldPrice2)}} {{getPaymentTokenName}}</td>
             </tr>
             <tr>
               <td>3 characters</td>
-              <td>{{getMinterTldPrice3}} {{getPaymentTokenName}}</td>
+              <td>{{Math.round(getMinterTldPrice3)}} {{getPaymentTokenName}}</td>
             </tr>
             <tr>
               <td>4 characters</td>
-              <td>{{getMinterTldPrice4}} {{getPaymentTokenName}}</td>
+              <td>{{Math.round(getMinterTldPrice4)}} {{getPaymentTokenName}}</td>
             </tr>
             <tr>
               <td>5+ characters</td>
-              <td>{{getMinterTldPrice5}} {{getPaymentTokenName}}</td>
+              <td>{{Math.round(getMinterTldPrice5)}} {{getPaymentTokenName}}</td>
             </tr>
           </tbody>
         </table>

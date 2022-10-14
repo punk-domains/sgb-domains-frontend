@@ -5,7 +5,7 @@
         <h3>Referrals</h3>
 
         <p> 
-          Share this referral link and earn rewards from new domain mints!
+          Share this link and earn a 10% referral fee from each new domain mint made via this link!
         </p>
 
         <div class="row mt-1">

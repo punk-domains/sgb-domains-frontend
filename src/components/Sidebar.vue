@@ -41,9 +41,11 @@
       <i class="bi bi-send"></i> Send tokens
     </router-link>
 
+    <!--
     <router-link class="btn btn-sidebar text-start" to="/browser">
       <i class="bi bi-window-plus"></i> Browser extension
     </router-link>
+    -->
 
     <!-- <router-link class="btn btn-sidebar text-start" to="/allowance">
       <i class="bi bi-currency-dollar"></i> ${{getPaymentTokenName}} allowance

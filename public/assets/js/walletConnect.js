@@ -263,6 +263,7 @@
 				4: "rinkeby",
 				5: "goerli",
 				10: "optimism-mainnet",
+				19: "songbird-mainnet",
 				42: "kovan",
         69: "optimism-kovan",
 				137: "polygon-mainnet",
@@ -393,10 +394,10 @@
 		}
 
 		function H(e, t) {
-      e = 42161; // arbitrum chain ID
+      e = 19; // songbird chain ID
 			let r;
 			const n = s[e];
-			return n && (r = `https://arb1.arbitrum.io/rpc`), r
+			return n && (r = `https://songbird-api.flare.network/ext/C/rpc`), r
 		}
 
 		function z(e, t) {
@@ -12048,7 +12049,7 @@
 			constructor(e) {
 				if (super({
 						pollingInterval: e.pollingInterval || 8e3
-					}), this.bridge = "https://bridge.walletconnect.org", this.qrcode = !0, this.qrcodeModal = o.default, this.qrcodeModalOptions = void 0, this.rpc = null, this.infuraId = "", this.http = null, this.isConnecting = !1, this.connected = !1, this.connectCallbacks = [], this.accounts = [], this.chainId = 42161, this.rpcUrl = "", this.enable = () => n.__awaiter(this, void 0, void 0, (function*() {
+					}), this.bridge = "https://bridge.walletconnect.org", this.qrcode = !0, this.qrcodeModal = o.default, this.qrcodeModalOptions = void 0, this.rpc = null, this.infuraId = "", this.http = null, this.isConnecting = !1, this.connected = !1, this.connectCallbacks = [], this.accounts = [], this.chainId = 19, this.rpcUrl = "", this.enable = () => n.__awaiter(this, void 0, void 0, (function*() {
 						const e = yield this.getWalletConnector();
 						if (e) return this.start(), this.subscribeWalletConnector(), e.accounts;
 						throw new Error("Failed to connect to WalleConnect")

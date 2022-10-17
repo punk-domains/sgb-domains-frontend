@@ -152,13 +152,13 @@ export default {
 
     getPrice() {
       if (this.chosenDomainName) {
-        if (this.chosenDomainName.length === 1) {
+        if (this.chosenDomainName.match(/./gu).length === 1) {
           return this.getMinterTldPrice1;
-        } else if (this.chosenDomainName.length === 2) {
+        } else if (this.chosenDomainName.match(/./gu).length === 2) {
           return this.getMinterTldPrice2;
-        } else if (this.chosenDomainName.length === 3) {
+        } else if (this.chosenDomainName.match(/./gu).length === 3) {
           return this.getMinterTldPrice3;
-        } else if (this.chosenDomainName.length === 4) {
+        } else if (this.chosenDomainName.match(/./gu).length === 4) {
           return this.getMinterTldPrice4;
         }
       }

@@ -17,7 +17,7 @@ export default {
   getters: { 
     getBlockExplorerBaseUrl() {
       // TODO
-      return "https://songbird-explorer.flare.network/";
+      return "https://songbird-explorer.flare.network";
     },
     
     getChainId() {

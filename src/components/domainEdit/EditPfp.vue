@@ -61,7 +61,7 @@
 <script>
 import { ethers } from 'ethers';
 import { mapGetters } from 'vuex';
-import { useEthers, shortenAddress } from 'vue-dapp';
+import { useEthers, shortenAddress } from '../../vue-dapp/index.esm.js';
 import { useToast, TYPE } from "vue-toastification";
 import WaitingToast from "../toasts/WaitingToast.vue";
 

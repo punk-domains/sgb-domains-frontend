@@ -318,7 +318,7 @@
 
 <script lang="ts">
 import { ethers } from 'ethers';
-import { useEthers } from 'vue-dapp';
+import { useEthers } from '../vue-dapp/index.esm.js';
 import { mapActions, mapGetters } from 'vuex';
 import { useToast, TYPE } from "vue-toastification";
 import WaitingToast from "../components/toasts/WaitingToast.vue";

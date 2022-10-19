@@ -8,7 +8,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import Toast, { POSITION, TYPE } from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import './index.css'
-import { VueDapp } from 'vue-dapp'
+import { VueDapp } from './vue-dapp/index.esm.js'
 
 const app = createApp(App);
 

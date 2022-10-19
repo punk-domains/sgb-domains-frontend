@@ -57,7 +57,7 @@
 
 <script lang="ts">
 import { mapGetters } from 'vuex';
-import { useBoard, useEthers, useWallet } from 'vue-dapp';
+import { useBoard, useEthers, useWallet } from '../vue-dapp/index.esm.js';
 import useChainHelpers from "../hooks/useChainHelpers";
 
 export default {

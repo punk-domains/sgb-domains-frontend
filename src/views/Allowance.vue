@@ -52,7 +52,7 @@
 import { ethers } from 'ethers';
 import { mapGetters, mapMutations } from 'vuex';
 import { useToast, TYPE } from "vue-toastification";
-import { useEthers } from 'vue-dapp';
+import { useEthers } from '../vue-dapp/index.esm.js';
 
 import tldsJson from '../abi/tlds.json';
 import tldAbi from '../abi/PunkTLD.json';

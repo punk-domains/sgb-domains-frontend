@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { useEthers, displayEther, shortenAddress } from 'vue-dapp';
+import { useEthers, displayEther, shortenAddress } from '../../vue-dapp/index.esm.js';
 import MinterAbi from "../../abi/Minter.json";
 import TldAbi from "../../abi/PunkTLD.json";
 

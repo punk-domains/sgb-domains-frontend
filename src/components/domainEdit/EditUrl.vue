@@ -50,7 +50,7 @@
 <script>
 import { ethers } from 'ethers';
 import { mapGetters } from 'vuex';
-import { useEthers } from 'vue-dapp';
+import { useEthers } from '../../vue-dapp/index.esm.js';
 import { useToast, TYPE } from "vue-toastification";
 import WaitingToast from "../toasts/WaitingToast.vue";
 

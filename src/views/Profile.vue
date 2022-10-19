@@ -101,7 +101,7 @@
 <script lang="ts">
 import { mapGetters, mapMutations } from 'vuex';
 import { ethers } from 'ethers';
-import { useEthers } from 'vue-dapp';
+import { useEthers } from '../vue-dapp/index.esm.js';
 import { useToast, TYPE } from "vue-toastification";
 import MyDomain from '../components/MyDomain.vue';
 import Sidebar from '../components/Sidebar.vue';

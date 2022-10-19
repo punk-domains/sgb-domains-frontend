@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { useEthers } from 'vue-dapp';
+import { useEthers } from '../vue-dapp/index.esm.js';
 import { mapGetters } from 'vuex';
 
 export default {

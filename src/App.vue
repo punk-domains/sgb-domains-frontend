@@ -13,7 +13,7 @@
 <script lang="ts">
 import { onMounted } from "vue";
 import { ethers } from 'ethers';
-import { useEthers, useWallet } from 'vue-dapp';
+import { useEthers, useWallet } from './vue-dapp/index.esm.js';
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';

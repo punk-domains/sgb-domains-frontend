@@ -14,8 +14,14 @@
         
         <div class="d-flex ms-auto">
 
-          <div v-if="isActivated" class="navbar-menu-buttons">
-            <div class="btn-group mx-2 navbar-menu-btn">
+          <div class="navbar-menu-buttons">
+            <a 
+              class="btn btn-primary mx-2 navbar-menu-btn" 
+              href="https://www.sparklesnft.com/collection/songbirddomains/" 
+              target="_blank"
+            >Marketplace</a>
+
+            <div v-if="isActivated" class="btn-group mx-2 navbar-menu-btn">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{getNetworkName}}
               </button>
@@ -30,7 +36,7 @@
               </ul>
             </div>
 
-            <div class="btn-group mx-2 navbar-menu-btn">
+            <div v-if="isActivated" class="btn-group mx-2 navbar-menu-btn">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ getNameOrAddress }}
               </button>
@@ -45,9 +51,9 @@
                 <li class="dropdown-item" @click="logout">Disconnect</li>
               </ul>
             </div>
-          </div>
 
-          <button v-else class="btn btn-primary" @click="open">Connect wallet</button>
+            <button v-if="!isActivated" class="btn btn-primary navbar-menu-btn" @click="open">Connect wallet</button>
+          </div>
         </div>
 
       </div>

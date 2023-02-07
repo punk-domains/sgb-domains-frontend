@@ -41,6 +41,10 @@
       <i class="bi bi-send"></i> Send tokens
     </router-link>
 
+    <a class="btn btn-sidebar text-start" href="https://songbird.info" target="_blank">
+      <i class="bi bi-sun-fill"></i> Other projects on Songbird
+    </a>
+
     <!--
     <router-link class="btn btn-sidebar text-start" to="/browser">
       <i class="bi bi-window-plus"></i> Browser extension

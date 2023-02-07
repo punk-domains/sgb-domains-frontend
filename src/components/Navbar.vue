@@ -45,7 +45,7 @@
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ getNameOrAddress }}
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
                 <router-link tag="li" class="dropdown-item" to="/profile">Profile</router-link>
                 <router-link tag="li" class="dropdown-item" to="/">Buy domain</router-link>
                 <router-link tag="li" class="dropdown-item" to="/search-domain">Search domain</router-link>
@@ -53,6 +53,7 @@
                 <router-link tag="li" class="dropdown-item" to="/about">About</router-link>
                 <!-- <router-link tag="li" class="dropdown-item" to="/browser">Browser extension</router-link> -->
                 <li class="dropdown-item" @click="openUrl('https://docs.punk.domains/')">Docs</li>
+                <li class="dropdown-item" @click="openUrl('https://songbird.info/')">Other projects on Songbird</li>
                 <li class="dropdown-item" @click="logout">Disconnect</li>
               </ul>
             </div>

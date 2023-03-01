@@ -397,7 +397,7 @@
       e = 19; // songbird chain ID
 			let r;
 			const n = s[e];
-			return n && (r = `https://songbird.towolabs.com/rpc`), r
+			return n && (r = `https://songbird-api.flare.network/ext/C/rpc`), r
 		}
 
 		function z(e, t) {

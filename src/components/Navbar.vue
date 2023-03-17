@@ -17,7 +17,7 @@
           <div class="navbar-menu-buttons">
             <a 
               class="btn btn-primary mx-2 navbar-menu-btn" 
-              href="https://xfd.flr.finance/collection/0xBDACF94dDCAB51c39c2dD50BffEe60Bb8021949a" 
+              href="https://sparklesnft.com/collection/songbird/songbirddomains/" 
               target="_blank"
             >Marketplace</a>
 

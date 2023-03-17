@@ -61,6 +61,12 @@
             <div v-if="isActivated" class="btn-group me-3 navbar-menu-btn">
               <router-link tag="button" class="btn btn-primary" to="/send-tokens">Send Tokens</router-link>
             </div>
+
+            <a 
+              class="btn btn-primary me-3 navbar-menu-btn" 
+              href="https://sgb.chat" 
+              target="_blank"
+            >Chat</a>
           </div>
         </div>
 

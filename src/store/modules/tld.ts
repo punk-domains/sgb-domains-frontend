@@ -17,6 +17,7 @@ export default {
     tldChainName: "Songbird",
     minterAddress: "0xA33dCbE04278706248891931537Dd56B795c3663", // TODO
     minterContract: null,
+    minterLoadingData: false,
     minterPaused: true,
     minterTldPrice1: 50000,
     minterTldPrice2: 25000,
@@ -50,6 +51,9 @@ export default {
     getMinterContract(state) {
       return state.minterContract;
     },
+    getMinterLoadingData(state) {
+      return state.minterLoadingData;
+    },
     getMinterPaused(state) {
       return state.minterPaused;
     },
@@ -71,6 +75,10 @@ export default {
   },
 
   mutations: {
+    setDiscountPercentage(state, percentage) {
+      state.discountPercentage = percentage;
+    },
+
     setTldContract(state) {
       let fProvider = getFallbackProvider(state.tldChainId);
 
@@ -82,8 +90,8 @@ export default {
       state.minterContract = contract;
     },
 
-    setDiscountPercentage(state, percentage) {
-      state.discountPercentage = percentage;
+    setMinterLoadingData(state, loading) {
+      state.minterLoadingData = loading;
     },
 
     setMinterPaused(state, paused) {
@@ -109,6 +117,8 @@ export default {
 
   actions: {
     async fetchMinterContractData({commit, state}) {
+      commit("setMinterLoadingData", true);
+
       let fProvider = getFallbackProvider(state.tldChainId);
 
       // minter contract
@@ -140,6 +150,7 @@ export default {
       const domainPrice5 = ethers.utils.formatEther(priceWei5);
       commit("setMinterTldPrice5", domainPrice5);
 
+      commit("setMinterLoadingData", false);
     }
   }
 };

@@ -15,7 +15,6 @@
         <div class="d-flex ms-auto">
 
           <div class="navbar-menu-buttons">
-            
 
             <div v-if="isActivated" class="btn-group me-3 navbar-menu-btn">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,7 +49,7 @@
               </ul>
             </div>
 
-            <button v-if="!isActivated" class="btn btn-primary navbar-menu-btn" @click="open">Connect wallet</button>
+            <button v-if="!isActivated" class="btn btn-primary navbar-menu-btn me-3" @click="open">Connect wallet</button>
 
             <a 
               class="btn btn-primary me-3 navbar-menu-btn" 

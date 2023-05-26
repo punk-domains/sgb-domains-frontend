@@ -15,15 +15,15 @@ export default {
     tldContract: null,
     tldChainId: 19,
     tldChainName: "Songbird",
-    minterAddress: "0xA33dCbE04278706248891931537Dd56B795c3663", // TODO
+    minterAddress: "0x79adce3c0fE0E298B515af87C0BF198d7073A56D", // TODO
     minterContract: null,
     minterLoadingData: false,
     minterPaused: true,
     minterTldPrice1: 50000,
     minterTldPrice2: 25000,
     minterTldPrice3: 7749,
-    minterTldPrice4: 1999,
-    minterTldPrice5: 999
+    minterTldPrice4: 699,
+    minterTldPrice5: 299
   }),
 
   getters: { 
